@@ -1,5 +1,4 @@
-@"
-# IDE
+﻿# IDE
 .idea/
 *.iml
 
@@ -11,4 +10,3 @@ out/
 # OS
 .DS_Store
 Thumbs.db
-"@ | Set-Content .gitignore -Encoding UTF8

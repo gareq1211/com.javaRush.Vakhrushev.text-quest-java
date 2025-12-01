@@ -9,50 +9,50 @@ class GameLogicTest {
 
     @Test
     void testWinCaptainPath() {
-        GameLogic.GameState g = new GameLogic.GameState("Alex");
-        g.handleAnswer("dock");
-        g.handleAnswer("follow");
-        g.handleAnswer("yes");
-        g.handleAnswer("attack");
-        assertTrue(g.isWin());
-        assertEquals("Ты стал капитаном станции! Экипаж уважает тебя.", g.getResultMessage());
+        GameLogic.GameState gameState = new GameLogic.GameState("Alex");
+        gameState.handleAnswer("dock");
+        gameState.handleAnswer("follow");
+        gameState.handleAnswer("yes");
+        gameState.handleAnswer("attack");
+        assertTrue(gameState.isWin());
+        assertEquals("Ты стал капитаном станции! Экипаж уважает тебя.", gameState.getResultMessage());
     }
 
     @Test
     void testWinSpyPath() {
-        GameLogic.GameState g = new GameLogic.GameState("Eva");
-        g.handleAnswer("dock");
-        g.handleAnswer("sneak");
-        g.handleAnswer("truth");
-        assertTrue(g.isWin());
-        assertEquals("Ты — секретный агент! Твоя миссия выполнена.", g.getResultMessage());
+        GameLogic.GameState gameState = new GameLogic.GameState("Eva");
+        gameState.handleAnswer("dock");
+        gameState.handleAnswer("sneak");
+        gameState.handleAnswer("truth");
+        assertTrue(gameState.isWin());
+        assertEquals("Ты — секретный агент! Твоя миссия выполнена.", gameState.getResultMessage());
     }
 
     @Test
     void testLosePanic() {
-        GameLogic.GameState g = new GameLogic.GameState("Panic");
-        g.handleAnswer("run");
-        assertFalse(g.isWin());
-        assertEquals("Ты не справился со стрессом. Катастрофа.", g.getResultMessage());
+        GameLogic.GameState gameState = new GameLogic.GameState("Panic");
+        gameState.handleAnswer("run");
+        assertFalse(gameState.isWin());
+        assertEquals("Ты не справился со стрессом. Катастрофа.", gameState.getResultMessage());
     }
 
     @Test
     void testLoseBetrayal() {
-        GameLogic.GameState g = new GameLogic.GameState("Liar");
-        g.handleAnswer("dock");
-        g.handleAnswer("follow");
-        g.handleAnswer("no");
-        assertFalse(g.isWin());
-        assertEquals("Экипаж узнал, что ты шпион. Тебя казнили.", g.getResultMessage());
+        GameLogic.GameState gameState = new GameLogic.GameState("Liar");
+        gameState.handleAnswer("dock");
+        gameState.handleAnswer("follow");
+        gameState.handleAnswer("no");
+        assertFalse(gameState.isWin());
+        assertEquals("Экипаж узнал, что ты шпион. Тебя казнили.", gameState.getResultMessage());
     }
 
     @Test
     void testEscapeJumpWin() {
-        GameLogic.GameState g = new GameLogic.GameState("Runner");
-        g.handleAnswer("dock");
-        g.handleAnswer("hide");
-        g.handleAnswer("wait");
-        g.handleAnswer("jump");
-        assertTrue(g.isWin());
+        GameLogic.GameState gameState = new GameLogic.GameState("Runner");
+        gameState.handleAnswer("dock");
+        gameState.handleAnswer("hide");
+        gameState.handleAnswer("wait");
+        gameState.handleAnswer("jump");
+        assertTrue(gameState.isWin());
     }
 }
