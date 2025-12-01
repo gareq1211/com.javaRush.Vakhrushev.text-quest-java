@@ -1,3 +1,4 @@
+@"
 # IDE
 .idea/
 *.iml
@@ -5,7 +6,9 @@
 # Build
 target/
 out/
+*.war
 
 # OS
 .DS_Store
-Thumbs.dbe
+Thumbs.db
+"@ | Set-Content .gitignore -Encoding UTF8
